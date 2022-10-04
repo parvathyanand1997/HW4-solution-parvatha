@@ -1,4 +1,4 @@
-class glazes {
+class Glazes {
 
     glazeType;
     glazePrice
@@ -72,8 +72,7 @@ let glaze = "Keep Original";
 let packSize = 1;
 
  //Function to extract the price of the selected glazing
-function glazingChange(element)
-{
+function glazingChange(element) {
 
     let selectedGlazeOption = element.value;
     console.log(selectedGlazeOption);
@@ -92,8 +91,7 @@ function glazingChange(element)
 }
 
 //Function to extract the price of the pack
-function packChange(element)
-{
+function packChange(element) {
     let selectedPackOption = element.value;
     console.log(selectedPackOption);
 
@@ -110,12 +108,10 @@ function packChange(element)
 }
 
 //Function to calculate the price and display it
-function calculatePrice(gPrice,pSize)
-{
+function calculatePrice(gPrice,pSize) {
     totalPrice = (rolls[rollType].basePrice + gPrice)*pSize;
     let totalDisplay = document.getElementById("price");
     totalDisplay.innerText = totalPrice.toFixed(2);
-
 }
 
 // ------------------------------- HW 4 ------------------------------- 
