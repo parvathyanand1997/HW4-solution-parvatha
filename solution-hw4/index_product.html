@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail Page</title>
     <link rel="stylesheet" href="css/style2.css">
+    <script defer src="js/rollsData.js"></script>
     <script defer src="js/app.js"></script>
+
   </head>
 
   <body>
@@ -26,7 +28,7 @@
             <input type="button" onclick="window.location.href='index_cart.html'" class="btn" value="CART">
           </div>
           <hr>
-          <h1>Original Cinnamon Roll</h1>
+          <h1 id="heading">Original Cinnamon Roll</h1>
         </div>
 
       </div>  
@@ -39,7 +41,7 @@
         <section>
 
           <div class="details-container">
-            <img class="detail-img" src="assets/original-cinnamon-roll.jpeg" alt="original cinnamon roll">
+            <img id="detail-img" src="assets/original-cinnamon-roll.jpeg" alt="original cinnamon roll">
             <div class="details">
               <p>Customise our delicious,<br>hand-made cinnamon roll to<br>your liking</p>
 
@@ -61,7 +63,8 @@
             <div class = "add-to-cart">
 
               <p>$ <span id="price">2.49</span></p>
-              <input type="button" onclick="window.location.href='index_cart.html'" id="btn2" value="Add to Cart">
+              <!-- Add to cart Button-->
+              <input type="button" onclick="AddtoCart()" id="btn2" value="Add to Cart">
 
             </div>
           </div>

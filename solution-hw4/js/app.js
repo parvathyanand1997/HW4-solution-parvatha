@@ -19,9 +19,6 @@ const doubleChocolate = new glazes('doubleChocolate',1.50);
 
 class packs {
 
-    packType;
-    packPrice;
-
     constructor(packType,packPrice) 
     {
         this.packType = packType;
@@ -68,10 +65,11 @@ for (let j = 0; j < packObjectList.length; j++)
      
 
 
-const basePrice = 2.49;
 let gPrice = 0.0;
-let pSize = 1;
+let pPrice = 1;
 let totalPrice = 0.0;
+let glaze = "Keep Original";
+let packSize = 1;
 
  //Function to extract the price of the selected glazing
 function glazingChange(element)
@@ -85,10 +83,11 @@ function glazingChange(element)
         if(selectedGlazeOption == glazeObjectList[i].glazeType)
         {
             gPrice = Number(glazeObjectList[i].glazePrice);
+            glaze = glazeObjectList[i].glazeType;
         }
     }
     //console.log(gPrice);
-    calculatePrice(gPrice,pSize);
+    calculatePrice(gPrice,pPrice);
 
 }
 
@@ -102,19 +101,63 @@ function packChange(element)
     {
         if(selectedPackOption == packObjectList[i].packType)
         {
-            pSize = Number(packObjectList[i].packPrice);
+            pPrice = Number(packObjectList[i].packPrice);
+            packSize = Number(packObjectList[i].packType);
         }
     }
     //console.log(pSize);
-    calculatePrice(gPrice,pSize);
+    calculatePrice(gPrice,pPrice);
 }
 
 //Function to calculate the price and display it
 function calculatePrice(gPrice,pSize)
 {
-    totalPrice = (basePrice + gPrice)*pSize;
+    totalPrice = (rolls[rollType].basePrice + gPrice)*pSize;
     let totalDisplay = document.getElementById("price");
     totalDisplay.innerText = totalPrice.toFixed(2);
 
 }
+
+// ------------------------------- HW 4 ------------------------------- 
+
+console.log(rolls);
+
+//Array to store orders 
+let cart = [];
+
+//Getting value of search parameter
+const queryString = window.location.search;
+const params = new URLSearchParams(queryString);
+const rollType = params.get("roll");
+
+
+//console.log(rolls[rollType]);
+//console.log(document.getElementById("heading"));
+
+
+//Changing the heading, image and base price based on the flavour
+document.getElementById("heading").innerText = rollType + " Cinnamon Roll";
+document.getElementById("detail-img").src = rolls[rollType].imageFile;
+document.getElementById("price").innerText = rolls[rollType].basePrice;
+
+
+class Roll {
+    constructor(rollType, rollGlazing, packSize, basePrice) {
+        this.type = rollType;
+        this.glazing = rollGlazing;
+        this.size = packSize;
+        this.basePrice = basePrice;
+    }
+}
+
+//Pushing order to cart array on clicking the 'Add to Cart' button 
+function AddtoCart() {
+    let rollOrder = new Roll(rollType, glaze, packSize, rolls[rollType].basePrice);
+    cart.push(rollOrder);
+    console.log(rollOrder);
+
+}
+
+
+
 
