@@ -14,7 +14,7 @@ class Glazes {
 const keepOriginal = new glazes('Keep original',0.0);
 const sugarMilk = new glazes('Sugar milk',0.0);
 const vanillaMilk = new glazes('Vanilla milk',0.50);
-const doubleChocolate = new glazes('doubleChocolate',1.50);
+const doubleChocolate = new glazes('Double Chocolate',1.50);
 
 
 class packs {
